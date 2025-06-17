@@ -60,6 +60,37 @@
             src="https://kit.fontawesome.com/a076d05399.js"
             crossorigin="anonymous"
         ></script>
+        <style>
+            /* Custom styles for animations and effects */
+            .hero::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                    rgba(0, 0, 0, 0.6),
+                    rgba(0, 0, 0, 0.6)
+                );
+                z-index: 1;
+                border-radius: 0.75rem; /* Matches rounded-xl on hero */
+            }
+
+            .hero .container {
+                position: relative;
+                z-index: 2; /* Ensure content is above overlay */
+            }
+
+            .card-hover-effect {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover-effect:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            }
+        </style>
     </head>
     <body class="font-sans antialiased bg-gray-100 text-gray-700">
         <!-- Header Section -->
@@ -78,16 +109,12 @@
         <section
             class="hero relative bg-cover bg-center text-white text-center py-24 md:py-32 lg:py-40 flex flex-col justify-center items-center overflow-hidden rounded-xl shadow-lg mt-8 mx-4"
             style="
-                background-image: linear-gradient(
-                        rgba(0, 0, 0, 0.6),
-                        rgba(0, 0, 0, 0.6)
-                    ),
-                    url('https://placehold.co/1920x800/007a4d/ffffff?text=Global+Recycling');
+                background-image: url('https://placehold.co/1920x800/007a4d/ffffff?text=Global+Recycling');
                 background-size: cover;
                 background-position: center;
             "
         >
-            <div class="container mx-auto px-4 z-10">
+            <div class="container mx-auto px-4">
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                     Working Towards a Greener World
                 </h2>
@@ -109,7 +136,7 @@
         <!-- Overview Section -->
         <section
             id="overview"
-            class="py-16 bg-white shadow-sm rounded-lg mx-4 mt-8"
+            class="py-16 bg-white shadow-md rounded-xl mx-4 mt-8"
         >
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl font-bold text-emerald-700 mb-6">
@@ -129,7 +156,7 @@
         <!-- Impact Section -->
         <section
             id="impact"
-            class="py-16 bg-emerald-50 shadow-sm rounded-lg mx-4 mt-8"
+            class="py-16 bg-emerald-50 shadow-md rounded-xl mx-4 mt-8"
         >
             <div class="container mx-auto px-4">
                 <h2
@@ -142,7 +169,7 @@
                 >
                     <!-- Impact Item 1 -->
                     <div
-                        class="impact-item bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-center"
+                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-center"
                     >
                         <i
                             class="fas fa-leaf text-4xl text-emerald-600 mb-4 block"
@@ -157,7 +184,7 @@
                     </div>
                     <!-- Impact Item 2 -->
                     <div
-                        class="impact-item bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-center"
+                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-center"
                     >
                         <i
                             class="fas fa-recycle text-4xl text-emerald-600 mb-4 block"
@@ -172,7 +199,7 @@
                     </div>
                     <!-- Impact Item 3 -->
                     <div
-                        class="impact-item bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-center"
+                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-center"
                     >
                         <i
                             class="fas fa-lightbulb text-4xl text-emerald-600 mb-4 block"
@@ -187,7 +214,7 @@
                     </div>
                     <!-- Impact Item 4 -->
                     <div
-                        class="impact-item bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-center"
+                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-center"
                     >
                         <i
                             class="fas fa-dollar-sign text-4xl text-emerald-600 mb-4 block"
@@ -204,10 +231,10 @@
             </div>
         </section>
 
-        <!-- Global Participation Section (formerly Local Context) -->
+        <!-- Global Participation Section -->
         <section
             id="global-participation"
-            class="py-16 bg-white shadow-sm rounded-lg mx-4 mt-8"
+            class="py-16 bg-white shadow-md rounded-xl mx-4 mt-8"
         >
             <div
                 class="container mx-auto px-4 flex flex-col items-center text-center"
@@ -274,7 +301,7 @@
         <!-- How-to Section -->
         <section
             id="how-to"
-            class="py-16 bg-emerald-50 shadow-sm rounded-lg mx-4 mt-8"
+            class="py-16 bg-emerald-50 shadow-md rounded-xl mx-4 mt-8"
         >
             <div class="container mx-auto px-4">
                 <h2
@@ -287,7 +314,7 @@
                 >
                     <!-- How-to Item 1 -->
                     <div
-                        class="how-to-item bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-left"
+                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-left"
                     >
                         <h3 class="text-xl font-semibold text-blue-600 mb-4">
                             <i class="fas fa-newspaper text-3xl mr-3"></i> Paper
@@ -302,7 +329,7 @@
                     </div>
                     <!-- How-to Item 2 -->
                     <div
-                        class="how-to-item bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-left"
+                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-left"
                     >
                         <h3 class="text-xl font-semibold text-blue-600 mb-4">
                             <i class="fas fa-bottle-plastic text-3xl mr-3"></i>
@@ -317,7 +344,7 @@
                     </div>
                     <!-- How-to Item 3 -->
                     <div
-                        class="how-to-item bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 text-left"
+                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-left"
                     >
                         <h3 class="text-xl font-semibold text-blue-600 mb-4">
                             <i class="fas fa-glass-cheers text-3xl mr-3"></i>
@@ -336,7 +363,7 @@
         <!-- Call to Action Section -->
         <section
             id="learn-more"
-            class="py-16 bg-gray-100 rounded-lg mx-4 mt-8 shadow-md"
+            class="py-16 bg-gray-100 rounded-xl mx-4 mt-8 shadow-md"
         >
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl font-bold text-emerald-700 mb-6">
@@ -355,7 +382,7 @@
         </section>
 
         <!-- Footer Section -->
-        <footer class="bg-gray-800 text-white py-8 text-sm mt-8 rounded-t-lg">
+        <footer class="bg-gray-800 text-white py-8 text-sm mt-8 rounded-t-xl">
             <div class="container mx-auto px-4 text-center">
                 <p>&copy; 2025 GreenSync Global. All rights reserved.</p>
                 <p class="mt-2">

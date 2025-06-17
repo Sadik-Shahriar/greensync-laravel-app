@@ -3,393 +3,41 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>GreenSync Global - Recycle for a Sustainable Future</title>
+        <title>Hello World Aesthetic</title>
         <!-- Inter font for a modern look -->
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
             rel="stylesheet"
         />
         <!-- Tailwind CSS CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
-            // Tailwind CSS configuration for custom fonts and colors
+            // Tailwind CSS configuration for custom fonts
             tailwind.config = {
                 theme: {
                     extend: {
                         fontFamily: {
                             sans: ["Inter", "sans-serif"],
                         },
-                        colors: {
-                            emerald: {
-                                50: "#e9f5ed",
-                                100: "#d4eddf",
-                                200: "#a9dbbf",
-                                300: "#7ec89f",
-                                400: "#53b67f",
-                                500: "#28a45f", // Main green
-                                600: "#1e8449",
-                                700: "#156434",
-                                800: "#0c441f",
-                                900: "#062210",
-                            },
-                            orange: {
-                                400: "#f39c12",
-                                500: "#e67e22", // Main orange for buttons
-                                600: "#d35400",
-                            },
-                            // Neutral colors for text
-                            gray: {
-                                50: "#f9fafb",
-                                100: "#f3f4f6",
-                                200: "#e5e7eb",
-                                300: "#d1d5db",
-                                400: "#9ca3af",
-                                500: "#6b7280",
-                                600: "#4b5563",
-                                700: "#374151",
-                                800: "#1f2937",
-                                900: "#111827",
-                            },
-                        },
                     },
                 },
             };
         </script>
-        <!-- Font Awesome for icons -->
-        <script
-            src="https://kit.fontawesome.com/a076d05399.js"
-            crossorigin="anonymous"
-        ></script>
-        <style>
-            /* Custom styles for animations and effects */
-            .hero::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(
-                    rgba(0, 0, 0, 0.6),
-                    rgba(0, 0, 0, 0.6)
-                );
-                z-index: 1;
-                border-radius: 0.75rem; /* Matches rounded-xl on hero */
-            }
-
-            .hero .container {
-                position: relative;
-                z-index: 2; /* Ensure content is above overlay */
-            }
-
-            .card-hover-effect {
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-            .card-hover-effect:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-                    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            }
-        </style>
     </head>
-    <body class="font-sans antialiased bg-gray-100 text-gray-700">
-        <!-- Header Section -->
-        <header class="bg-emerald-700 text-white py-4 shadow-md rounded-b-lg">
-            <div
-                class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center"
+    <body
+        class="font-sans antialiased bg-gradient-to-br from-emerald-50 to-emerald-200 min-h-screen flex items-center justify-center"
+    >
+        <div
+            class="text-center p-8 bg-white rounded-3xl shadow-xl transform transition-transform duration-500 hover:scale-105"
+        >
+            <h1
+                class="text-7xl md:text-8xl lg:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-800 tracking-tight"
             >
-                <h1 class="text-3xl font-bold text-white mb-2 sm:mb-0">
-                    GreenSync Global
-                </h1>
-                <nav></nav>
-            </div>
-        </header>
-
-        <!-- Hero Section -->
-        <section
-            class="hero relative bg-cover bg-center text-white text-center py-24 md:py-32 lg:py-40 flex flex-col justify-center items-center overflow-hidden rounded-xl shadow-lg mt-8 mx-4"
-            style="
-                background-image: url('https://placehold.co/1920x800/007a4d/ffffff?text=Global+Recycling');
-                background-size: cover;
-                background-position: center;
-            "
-        >
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                    Working Towards a Greener World
-                </h2>
-                <p
-                    class="text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed"
-                >
-                    Join GreenSync in our mission to promote effective recycling
-                    practices worldwide and build a more sustainable future for
-                    everyone.
-                </p>
-                <a
-                    href="#learn-more"
-                    class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 transform hover:scale-105"
-                    >Learn More About Recycling</a
-                >
-            </div>
-        </section>
-
-        <!-- Overview Section -->
-        <section
-            id="overview"
-            class="py-16 bg-white shadow-md rounded-xl mx-4 mt-8"
-        >
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold text-emerald-700 mb-6">
-                    The Importance of Recycling Globally
-                </h2>
-                <p class="max-w-3xl mx-auto leading-relaxed text-gray-600">
-                    Our rapidly growing world faces significant challenges with
-                    waste management. Recycling plays a crucial role in reducing
-                    the burden on landfills, conserving precious resources, and
-                    mitigating environmental pollution. By embracing recycling,
-                    we can create a cleaner, healthier, and more livable planet
-                    for all.
-                </p>
-            </div>
-        </section>
-
-        <!-- Impact Section -->
-        <section
-            id="impact"
-            class="py-16 bg-emerald-50 shadow-md rounded-xl mx-4 mt-8"
-        >
-            <div class="container mx-auto px-4">
-                <h2
-                    class="text-3xl font-bold text-emerald-700 text-center mb-10"
-                >
-                    The Positive Impact of Your Recycling Efforts
-                </h2>
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 justify-center"
-                >
-                    <!-- Impact Item 1 -->
-                    <div
-                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-center"
-                    >
-                        <i
-                            class="fas fa-leaf text-4xl text-emerald-600 mb-4 block"
-                        ></i>
-                        <h3 class="text-xl font-semibold text-emerald-600 mb-2">
-                            Cleaner Environment
-                        </h3>
-                        <p class="text-gray-600">
-                            Reduces litter and pollution in our neighborhoods
-                            and waterways.
-                        </p>
-                    </div>
-                    <!-- Impact Item 2 -->
-                    <div
-                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-center"
-                    >
-                        <i
-                            class="fas fa-recycle text-4xl text-emerald-600 mb-4 block"
-                        ></i>
-                        <h3 class="text-xl font-semibold text-emerald-600 mb-2">
-                            Resource Conservation
-                        </h3>
-                        <p class="text-gray-600">
-                            Saves valuable natural resources like paper, metals,
-                            and plastics.
-                        </p>
-                    </div>
-                    <!-- Impact Item 3 -->
-                    <div
-                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-center"
-                    >
-                        <i
-                            class="fas fa-lightbulb text-4xl text-emerald-600 mb-4 block"
-                        ></i>
-                        <h3 class="text-xl font-semibold text-emerald-600 mb-2">
-                            Energy Efficiency
-                        </h3>
-                        <p class="text-gray-600">
-                            Lowers energy consumption in manufacturing new
-                            products from recycled materials.
-                        </p>
-                    </div>
-                    <!-- Impact Item 4 -->
-                    <div
-                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-center"
-                    >
-                        <i
-                            class="fas fa-dollar-sign text-4xl text-emerald-600 mb-4 block"
-                        ></i>
-                        <h3 class="text-xl font-semibold text-emerald-600 mb-2">
-                            Economic Benefits
-                        </h3>
-                        <p class="text-gray-600">
-                            Supports recycling industries and creates green jobs
-                            worldwide.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Global Participation Section -->
-        <section
-            id="global-participation"
-            class="py-16 bg-white shadow-md rounded-xl mx-4 mt-8"
-        >
-            <div
-                class="container mx-auto px-4 flex flex-col items-center text-center"
-            >
-                <h2 class="text-3xl font-bold text-emerald-700 mb-8">
-                    Global Recycling: How You Can Participate
-                </h2>
-                <img
-                    src="https://placehold.co/800x450/66CC99/ffffff?text=Global+Waste+Sorting"
-                    alt="Global Waste Sorting"
-                    class="max-w-xl w-full h-auto mb-8 rounded-lg shadow-md"
-                />
-                <p
-                    class="text-left max-w-2xl mx-auto leading-relaxed text-gray-600 mb-6"
-                >
-                    Every individual's effort contributes to a global impact.
-                    You can participate in building a sustainable future by:
-                </p>
-                <ul class="list-none p-0 m-0 text-left max-w-2xl mx-auto">
-                    <li class="mb-4 relative pl-8 text-gray-700">
-                        <i
-                            class="fas fa-check-circle text-xl text-emerald-600 absolute left-0 top-0.5"
-                        ></i>
-                        <strong class="text-emerald-700"
-                            >Separating Waste at Home/Work:</strong
-                        >
-                        Keep separate bins for paper, plastic, glass, and
-                        organic waste.
-                    </li>
-                    <li class="mb-4 relative pl-8 text-gray-700">
-                        <i
-                            class="fas fa-check-circle text-xl text-emerald-600 absolute left-0 top-0.5"
-                        ></i>
-                        <strong class="text-emerald-700"
-                            >Supporting Community Initiatives:</strong
-                        >
-                        Engage with local recycling programs, community
-                        clean-ups, and advocacy groups.
-                    </li>
-                    <li class="mb-4 relative pl-8 text-gray-700">
-                        <i
-                            class="fas fa-check-circle text-xl text-emerald-600 absolute left-0 top-0.5"
-                        ></i>
-                        <strong class="text-emerald-700"
-                            >Utilizing Local Recycling Facilities:</strong
-                        >
-                        Research available recycling centers and drop-off points
-                        in your area.
-                    </li>
-                    <li class="mb-4 relative pl-8 text-gray-700">
-                        <i
-                            class="fas fa-check-circle text-xl text-emerald-600 absolute left-0 top-0.5"
-                        ></i>
-                        <strong class="text-emerald-700"
-                            >Reducing Single-Use Items:</strong
-                        >
-                        Opt for reusable bags, bottles, containers, and products
-                        with minimal packaging whenever possible.
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- How-to Section -->
-        <section
-            id="how-to"
-            class="py-16 bg-emerald-50 shadow-md rounded-xl mx-4 mt-8"
-        >
-            <div class="container mx-auto px-4">
-                <h2
-                    class="text-3xl font-bold text-emerald-700 text-center mb-10"
-                >
-                    Simple Recycling Guidelines
-                </h2>
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 justify-center"
-                >
-                    <!-- How-to Item 1 -->
-                    <div
-                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-left"
-                    >
-                        <h3 class="text-xl font-semibold text-blue-600 mb-4">
-                            <i class="fas fa-newspaper text-3xl mr-3"></i> Paper
-                            & Cardboard
-                        </h3>
-                        <p class="text-gray-600">
-                            Keep dry and clean. Flatten cardboard boxes.
-                            Includes newspapers, magazines, clean paper, and
-                            flattened cartons. Avoid recycling greasy pizza
-                            boxes or waxed paper.
-                        </p>
-                    </div>
-                    <!-- How-to Item 2 -->
-                    <div
-                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-left"
-                    >
-                        <h3 class="text-xl font-semibold text-blue-600 mb-4">
-                            <i class="fas fa-bottle-plastic text-3xl mr-3"></i>
-                            Plastics
-                        </h3>
-                        <p class="text-gray-600">
-                            Rinse containers. Check for local recycling symbols
-                            and numbers (e.g., #1 PET, #2 HDPE are widely
-                            accepted). Remove caps and lids if instructed by
-                            local guidelines.
-                        </p>
-                    </div>
-                    <!-- How-to Item 3 -->
-                    <div
-                        class="card-hover-effect bg-white p-8 rounded-xl shadow-md transition-shadow duration-300 text-left"
-                    >
-                        <h3 class="text-xl font-semibold text-blue-600 mb-4">
-                            <i class="fas fa-glass-cheers text-3xl mr-3"></i>
-                            Glass & Metal
-                        </h3>
-                        <p class="text-gray-600">
-                            Rinse bottles and cans thoroughly. Separate by color
-                            if required. Aluminum cans, steel cans, and glass
-                            bottles/jars are generally valuable recyclables.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action Section -->
-        <section
-            id="learn-more"
-            class="py-16 bg-gray-100 rounded-xl mx-4 mt-8 shadow-md"
-        >
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold text-emerald-700 mb-6">
-                    Ready to Make a Difference?
-                </h2>
-                <p class="max-w-2xl mx-auto mb-8 leading-relaxed text-gray-600">
-                    Start your recycling journey today and contribute to a
-                    healthier planet. Every action, no matter how small, counts!
-                </p>
-                <a
-                    href="#"
-                    class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 transform hover:scale-105"
-                    >Get Started Now</a
-                >
-            </div>
-        </section>
-
-        <!-- Footer Section -->
-        <footer class="bg-gray-800 text-white py-8 text-sm mt-8 rounded-t-xl">
-            <div class="container mx-auto px-4 text-center">
-                <p>&copy; 2025 GreenSync Global. All rights reserved.</p>
-                <p class="mt-2">
-                    Promoting a sustainable future through effective recycling
-                    worldwide.
-                </p>
-            </div>
-        </footer>
+                Hello World!
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-600">
+                A simple greeting, beautifully rendered.
+            </p>
+        </div>
     </body>
 </html>

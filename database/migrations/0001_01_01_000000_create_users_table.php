@@ -17,6 +17,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['user', 'admin'])->default('user');
+            $table->integer('eco_points')->default(0);
+            $table->integer('total_disposals')->default(0);
+            $table->integer('total_bottles_recycled')->default(0);
+            $table->string('qr_code')->unique()->nullable();
+            $table->string('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -27,7 +27,12 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => Hash::make('password'), // Default password for all fake users
+            'role' => 'user',
+            'eco_points' => fake()->numberBetween(0, 5000),
+            'total_disposals' => fake()->numberBetween(0, 100),
+            'total_bottles_recycled' => fake()->numberBetween(50, 1000),
+            'qr_code' => Str::random(32),
             'remember_token' => Str::random(10),
         ];
     }

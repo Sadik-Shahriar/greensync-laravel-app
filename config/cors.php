@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['*'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', '/login', '/logout', '/register'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:3000'), 'https://greensync-app.test'],
+    'allowed_origins' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', 'http://localhost')),
 
     'allowed_origins_patterns' => [],
 

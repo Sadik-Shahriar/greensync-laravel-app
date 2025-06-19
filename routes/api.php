@@ -56,3 +56,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/iot/bottle-detected', [IoTController::class, 'recordBottleDetection']);
     Route::post('/iot/end-session', [IoTController::class, 'endSession']);
 });
+
+// Public API registration route for SPA signup
+Route::post('/register', [RegisteredUserController::class, 'store']);

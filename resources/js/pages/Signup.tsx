@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -40,11 +39,12 @@ const formSchema = z.object({
 });
 
 const Signup = () => {
-  const { signUp, user, loading } = useAuth();
+  const { signUp, user, isLoading } = useAuth();
+  const [error, setError] = useState<string | null>(null);
   
   // Redirect if already logged in
-  if (user && !loading) {
-    return <Navigate to="/" />;
+  if (user && !isLoading) {
+    return <Navigate to="/dashboard" />;
   }
   
   const form = useForm<z.infer<typeof formSchema>>({
@@ -58,11 +58,14 @@ const Signup = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      await signUp(values.email, values.password, values.name);
-    } catch (error) {
-      console.error("Signup error:", error);
-    }
+    setError(null);
+    const err = await signUp({
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      password_confirmation: values.confirmPassword,
+    });
+    if (err) setError(err);
   }
 
   return (
@@ -131,8 +134,9 @@ const Signup = () => {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full bg-greensync-primary hover:bg-greensync-secondary">
-                  Sign Up
+                {error && <div className="text-red-500 text-sm text-center">{error}</div>}
+                <Button type="submit" className="w-full bg-greensync-primary hover:bg-greensync-secondary" disabled={isLoading}>
+                  {isLoading ? 'Signing up...' : 'Sign Up'}
                 </Button>
               </form>
             </Form>

@@ -15,8 +15,8 @@ interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (credentials: any) => Promise<void>;
-  signUp: (data: any) => Promise<void>;
+  login: (credentials: { email: string; password: string }) => Promise<string | null>;
+  signUp: (data: { name: string; email: string; password: string; password_confirmation: string }) => Promise<string | null>;
   logout: () => void;
   // Add signUp if you want it here
 }
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       } catch (error) {
         // Token is invalid or expired
         localStorage.removeItem('auth_token');
-        console.error("Session check failed:", error);
+        delete apiClient.defaults.headers.common['Authorization'];
       }
     }
     setIsLoading(false);
@@ -59,43 +59,34 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     navigate('/dashboard');
   };
 
-  const login = async (credentials: any) => {
+  const login = async (credentials: { email: string; password: string }) => {
     try {
       const response = await apiClient.post('/api/auth/login', credentials);
       handleAuthSuccess(response.data.data.access_token, response.data.data.user);
-    } catch (error) {
-      console.error("Login failed:", error);
-      // Here you would show an error toast/notification
-      throw error;
+      return null;
+    } catch (error: any) {
+      return error?.response?.data?.message || 'Login failed.';
     }
   };
 
-  const signUp = async (data: any) => {
+  const signUp = async (data: { name: string; email: string; password: string; password_confirmation: string }) => {
     try {
-      // The register endpoint returns the same data structure as login
-      const response = await apiClient.post('/api/auth/register', data);
+      const response = await apiClient.post('/api/register', data);
       handleAuthSuccess(response.data.data.access_token, response.data.data.user);
-    } catch (error) {
-      console.error("Signup failed:", error);
-      throw error;
+      return null;
+    } catch (error: any) {
+      return error?.response?.data?.message || 'Signup failed.';
     }
   };
 
   const logout = async () => {
     try {
       await apiClient.post('/api/auth/logout');
-    } catch (error) {
-      console.error("Server logout failed:", error);
-    } finally {
-      // 1. Clear the token
-      localStorage.removeItem('auth_token');
-      // 2. Remove the auth header from axios
-      delete apiClient.defaults.headers.common['Authorization'];
-      // 3. Clear the user state
-      setUser(null);
-      // 4. Redirect to home
-      navigate('/');
-    }
+    } catch (error) {}
+    localStorage.removeItem('auth_token');
+    delete apiClient.defaults.headers.common['Authorization'];
+    setUser(null);
+    navigate('/');
   };
 
   const value = {

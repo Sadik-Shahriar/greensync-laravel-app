@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -33,11 +32,12 @@ const formSchema = z.object({
 });
 
 const Login = () => {
-  const { signIn, user, loading } = useAuth();
+  const { login, user, isLoading } = useAuth();
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   
   // Redirect if already logged in
-  if (user && !loading) {
+  if (user && !isLoading) {
     return <Navigate to="/" />;
   }
   
@@ -51,11 +51,9 @@ const Login = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      await signIn(values.email, values.password);
-    } catch (error) {
-      console.error("Login error:", error);
-    }
+    setError(null);
+    const err = await login({ email: values.email, password: values.password });
+    if (err) setError(err);
   }
 
   return (
@@ -124,8 +122,9 @@ const Login = () => {
                     Forgot password?
                   </Link>
                 </div>
-                <Button type="submit" className="w-full bg-greensync-primary hover:bg-greensync-secondary">
-                  Log in
+                {error && <div className="text-red-500 text-sm text-center">{error}</div>}
+                <Button type="submit" className="w-full bg-greensync-primary hover:bg-greensync-secondary" disabled={isLoading}>
+                  {isLoading ? 'Logging in...' : 'Log in'}
                 </Button>
               </form>
             </Form>

@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isLandingPage = location.pathname === '/';
-  const { isAuthenticated, user, signOut } = useAuth();
+  const { isAuthenticated, user, logout } = useAuth();
   
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -57,8 +57,8 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
     });
   }
 
-  const handleSignOut = async () => {
-    await signOut();
+  const handleLogout = async () => {
+    await logout();
     setIsOpen(false);
   };
 
@@ -145,7 +145,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                           </Link>
                         )}
                         <button 
-                          onClick={handleSignOut}
+                          onClick={handleLogout}
                           className="flex w-full items-center gap-2 p-2 hover:bg-accent rounded-md"
                         >
                           <LogOut className="h-4 w-4" />
@@ -157,6 +157,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                         <Link 
                           to="/login" 
                           className="flex items-center gap-2 p-2 hover:bg-accent rounded-md"
+                          onClick={() => setIsOpen(false)}
                         >
                           <LogIn className="h-4 w-4" />
                           <span>Log in</span>
@@ -164,6 +165,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                         <Link 
                           to="/signup" 
                           className="flex items-center gap-2 p-2 hover:bg-accent rounded-md text-greensync-primary"
+                          onClick={() => setIsOpen(false)}
                         >
                           <UserPlus className="h-4 w-4" />
                           <span>Sign up</span>

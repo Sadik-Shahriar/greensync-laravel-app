@@ -2,8 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return ['Laravel' => app()->version()];
-});
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| This "catch-all" route is essential for a Single Page Application (SPA).
+| It directs all non-API requests (like /, /dashboard, /profile) to the
+| single 'welcome' view. From there, React Router takes over to display
+| the correct page on the frontend.
+|
+| This must be the main route definition in this file.
+|
+*/
 
-require __DIR__.'/auth.php';
+// --- CATCH-ALL ROUTE FOR THE REACT APP ---
+// This MUST be the last route in this file.
+Route::get('/{any?}', function () {
+    return view('welcome');
+})->where('any', '.*');

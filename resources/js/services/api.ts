@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_ENDPOINTS, User, IoTDevice, DisposalSession, Partner, LaravelResponse, LaravelPaginatedResponse } from '../types/api';
 
 export const apiClient = axios.create({
-  baseURL: 'https://greensync-app.test',
+  baseURL: 'https://www.greensync.live',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
